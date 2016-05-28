@@ -34,6 +34,7 @@ const base = {
       { test: /\.js$/, exclude: /node_modules/, loader: 'babel-loader' },
       { test: /\.css$/, loader: 'style-loader!css-loader' },
       { test: /\.less$/, loader: 'style!css!less-loader' },
+      { test: /\.json$/, loader: 'json' },
     ],
   },
 }

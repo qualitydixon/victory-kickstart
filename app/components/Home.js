@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import { VictoryLine, VictoryBar, VictoryScatter, VictoryAxis, VictoryChart } from 'victory'
-import { getPoints, getHeaders, getTotalThrees, getThrees } from '../utils/helpers'
+import { VictoryLine, VictoryBar, VictoryScatter, VictoryAxis, VictoryChart, VictoryArea, VictoryStack } from 'victory'
+import { getPoints, getHeaders, getTotalThrees, getThrees, getAssists, getRebounds } from '../utils/helpers'
 import Header from './Header'
 import Overview from './Overview'
 
@@ -40,9 +40,21 @@ export default class Home extends Component {
               data={getThrees()} />
           </VictoryChart>
           <VictoryChart>
+            <VictoryAxis />
             <VictoryLine
               data={getTotalThrees()} />
           </VictoryChart>
+          <VictoryStack height={500}>
+          <VictoryArea
+            data={getPoints()}
+          />
+          <VictoryArea
+            data={getAssists()}
+          />
+          <VictoryArea
+            data={getRebounds()}
+          />
+        </VictoryStack>
         </div>
       </div>
     )

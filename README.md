@@ -1,16 +1,7 @@
-# react-kickstart
-My own little React boilerplate.
+# victory-kickstart
 
-[DEMO](http://qualitydixon.github.io/react-kickstart/)
+My goal is to have this repo contain a bunch of different charts that I can refer back to.
 
-## In this project...
-
-- React
-- React Router
-- Webpack
-- LESS
-- ESLint (standard)
-- Hot Loader
 
 ## Installation
 

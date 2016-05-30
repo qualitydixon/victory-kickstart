@@ -5,7 +5,7 @@ export function getHeaders () {
 }
 
 export function getPoints () {
-  return data.resultSets[0].rowSet.reverse().map((val, idx) => ({ x: formatDate(val[3]), y: val[24] }))
+  return data.resultSets[0].rowSet.reverse().map((val, idx) => ({ x: new Date(val[3]), y: val[24] }))
 }
 
 export function getPM () {

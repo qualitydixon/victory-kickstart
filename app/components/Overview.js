@@ -33,8 +33,9 @@ export default function Overview (props) {
         <VictoryChart width={800}
           domainPadding={{x: 15, y: 5}}>
           <VictoryAxis
+            scale='time'
             style={{tickLabels: {angle: 45}, data: {fontSize: 16}}}
-            tickFormat={(x) => x.getDate()} />
+            tickFormat={(x) => ((x.getMonth() + 1) + '-' + x.getDate())} />
           <VictoryAxis dependentAxis
             style={{grid: {stroke: '#424242', strokeWidth: 1}}}
             tickValues={[10, 30, 50]} />

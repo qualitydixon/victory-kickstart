@@ -20,9 +20,9 @@
     "babel-core": "^6.7.2",
     "less": "^2.6.1",
     "less-loader": "^2.2.3",
-    "react": "^0.14.7",
-    "react-dom": "^0.14.7",
-    "react-router": "^2.0.0",
+    "material-ui": "^0.15.0",
+    "react": "^15.1.0",
+    "react-dom": "^15.1.0",
     "victory": "^0.7.0"
   },
   "devDependencies": {

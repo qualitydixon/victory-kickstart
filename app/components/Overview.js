@@ -15,7 +15,7 @@ export default function Overview (props) {
   return (
     <div style={container}>
       <ChartFrame>
-        <DropDownMenu value={props.value} onChange={props.handleScaleChange}>
+        <DropDownMenu value={1} onChange={props.handleScaleChange}>
           <MenuItem value={1} label='scale' primaryText='time' />
           <MenuItem value={2} label='scale' primaryText='games' />
         </DropDownMenu>
@@ -34,7 +34,7 @@ export default function Overview (props) {
             tickValues={[10, 30, 50]} />
           <VictoryBar
             style={{data: {fill: warriorBlue}}}
-            data={getPoints()} />
+            data={props.data} />
         </VictoryChart>
       </ChartFrame>
     </div>
@@ -46,4 +46,5 @@ Overview.propTypes = {
   isTime: PropTypes.bool.isRequired,
   handleScaleChange: PropTypes.func.isRequired,
   handleDataChange: PropTypes.func.isRequired,
+  data: PropTypes.object.isRequired,
 }

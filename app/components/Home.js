@@ -31,7 +31,7 @@ export default class Home extends Component {
     }
   }
 
-  handleScaleChange = (event, index, value) => this.setState({value})
+  handleScaleChange = (event, index, scale) => this.setState({scale})
   handleDataChange = (event, index, value) => this.setState({value})
 
   render () {
@@ -39,13 +39,13 @@ export default class Home extends Component {
       <div style={containerStyle}>
         <Header/>
         <div style={overviewContainer}>
-        <Overview isTime={this.state.isTime} value={this.state.value} handleScaleChange={this.handleScaleChange} handleDataChange={this.handleDataChange} />
+        <Overview isTime={this.state.isTime} data={this.state.overviewData} value={this.state.value} handleScaleChange={this.handleScaleChange} handleDataChange={this.handleDataChange} />
         </div>
         <div className='chartContainer'>
           <VictoryChart width={800}>
             <VictoryBar
               style={{data: {fill: warriorBlue}}}
-              data={getPoints()} />
+              data={this.state.overviewData} />
           </VictoryChart>
           <VictoryChart>
             <VictoryBar

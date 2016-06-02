@@ -26,11 +26,12 @@ export default class Home extends Component {
     this.state = {
       value: 1,
       isTime: true,
+      scale: 'games',
       overviewData: getPoints(),
     }
   }
 
-  handleChange = (event, index, value) => this.setState({value})
+  handleScaleChange = (event, index, value) => this.setState({value})
   handleDataChange = (event, index, value) => this.setState({value})
 
   render () {
@@ -38,7 +39,7 @@ export default class Home extends Component {
       <div style={containerStyle}>
         <Header/>
         <div style={overviewContainer}>
-        <Overview isTime={this.state.isTime} value={this.state.value} handleChange={this.handleChange} handleDataChange={this.handleDataChange} />
+        <Overview isTime={this.state.isTime} value={this.state.value} handleScaleChange={this.handleScaleChange} handleDataChange={this.handleDataChange} />
         </div>
         <div className='chartContainer'>
           <VictoryChart width={800}>

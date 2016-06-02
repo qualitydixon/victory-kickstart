@@ -15,7 +15,7 @@ export default function Overview (props) {
   return (
     <div style={container}>
       <ChartFrame>
-        <DropDownMenu value={props.value} onChange={props.handleChange}>
+        <DropDownMenu value={props.value} onChange={props.handleScaleChange}>
           <MenuItem value={1} label='scale' primaryText='time' />
           <MenuItem value={2} label='scale' primaryText='games' />
         </DropDownMenu>
@@ -44,5 +44,6 @@ export default function Overview (props) {
 Overview.propTypes = {
   value: PropTypes.number.isRequired,
   isTime: PropTypes.bool.isRequired,
-  handleChange: PropTypes.func.isRequired,
+  handleScaleChange: PropTypes.func.isRequired,
+  handleDataChange: PropTypes.func.isRequired,
 }

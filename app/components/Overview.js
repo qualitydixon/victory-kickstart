@@ -19,7 +19,7 @@ export default function Overview (props) {
           <MenuItem value={1} label='scale' primaryText='time' />
           <MenuItem value={2} label='scale' primaryText='games' />
         </DropDownMenu>
-        <DropDownMenu value={props.value} onChange={props.handleDataChange}>
+        <DropDownMenu value={1} onChange={props.handleDataChange}>
           <MenuItem value={1} primaryText='points' />
           <MenuItem value={2} primaryText='rebounds' />
         </DropDownMenu>

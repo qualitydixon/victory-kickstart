@@ -4,6 +4,10 @@ import { getPoints, getHeaders, getTotalThrees, getThrees, getAssists, getReboun
 import Header from './Header'
 import Overview from './Overview'
 
+
+const pointsData = getPoints()
+const reboundsData = getRebounds()
+
 const warriorBlue = '#1A64B7'
 const warriorYellow = '#FBBF16'
 const barStyle = {
@@ -27,14 +31,17 @@ export default class Home extends Component {
       value: 1,
       isTime: true,
       scale: 'games',
-      overviewData: getPoints(),
+      overviewData: pointsData,
     }
   }
 
-  handleScaleChange = (event, index, scale) => this.setState({scale})
+  handleScaleChange = (event, index, value) => this.setState(
+    {
+      scale: value === 2 ? 'games' : 'time',
+    })
   handleDataChange = (event, index, value) => this.setState(
     {
-      overviewData: value === 2 ? getRebounds() : getPoints(),
+      overviewData: value === 2 ? reboundsData : pointsData,
     }
   )
 

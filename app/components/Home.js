@@ -32,7 +32,11 @@ export default class Home extends Component {
   }
 
   handleScaleChange = (event, index, scale) => this.setState({scale})
-  handleDataChange = (event, index, value) => this.setState({value})
+  handleDataChange = (event, index, value) => this.setState(
+    {
+      overviewData: value === 2 ? getRebounds() : getPoints(),
+    }
+  )
 
   render () {
     return (

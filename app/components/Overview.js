@@ -46,5 +46,5 @@ Overview.propTypes = {
   isTime: PropTypes.bool.isRequired,
   handleScaleChange: PropTypes.func.isRequired,
   handleDataChange: PropTypes.func.isRequired,
-  data: PropTypes.object.isRequired,
+  data: PropTypes.array.isRequired,
 }

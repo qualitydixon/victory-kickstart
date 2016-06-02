@@ -11,39 +11,22 @@ const container = {
   width: '90vw',
 }
 
-const dataCard = {
-  display: 'flex',
-  flexDirection: 'column',
-  alignItems: 'center',
-  background: '#F4F4F4',
-  color: '#000000',
-  boxShadow: '0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23)',
-}
 export default function Overview (props) {
   return (
     <div style={container}>
-      <div style={dataCard}>
-        <h2>{'15-16 Regular Season Averages'}</h2>
-        <ul style={{listStyleType: 'none'}}>
-          <li>{'30.1 pts'}</li>
-          <li>{'5.4 reb'}</li>
-          <li>{'6.7 ast'}</li>
-          <li>{'2.14 stl'}</li>
-        </ul>
-      </div>
       <ChartFrame>
         <DropDownMenu value={props.value} onChange={props.handleChange}>
-          <MenuItem value={1} primaryText='time' />
-          <MenuItem value={2} primaryText='games' />
+          <MenuItem value={1} label='scale' primaryText='time' />
+          <MenuItem value={2} label='scale' primaryText='games' />
         </DropDownMenu>
-        <DropDownMenu value={props.value} onChange={props.handleChange}>
+        <DropDownMenu value={props.value} onChange={props.handleDataChange}>
           <MenuItem value={1} primaryText='points' />
           <MenuItem value={2} primaryText='rebounds' />
         </DropDownMenu>
         <VictoryChart width={800}
           domainPadding={{x: 15, y: 5}}>
           <VictoryAxis
-            scale='time'
+            scale={props.isTime ? 'time' : ''}
             style={{tickLabels: {angle: 45}, data: {fontSize: 16}}}
             tickFormat={(x) => ((x.getMonth() + 1) + '-' + x.getDate())} />
           <VictoryAxis dependentAxis
@@ -56,4 +39,10 @@ export default function Overview (props) {
       </ChartFrame>
     </div>
   )
+}
+
+Overview.propTypes = {
+  value: PropTypes.number.isRequired,
+  isTime: PropTypes.bool.isRequired,
+  handleChange: PropTypes.func.isRequired,
 }

@@ -23,17 +23,22 @@ const overviewContainer = {
 export default class Home extends Component {
   constructor (props) {
     super(props)
-    this.state = {value: 1}
+    this.state = {
+      value: 1,
+      isTime: true,
+      overviewData: getPoints(),
+    }
   }
 
   handleChange = (event, index, value) => this.setState({value})
+  handleDataChange = (event, index, value) => this.setState({value})
 
   render () {
     return (
       <div style={containerStyle}>
         <Header/>
         <div style={overviewContainer}>
-        <Overview value={this.state.value} handleChange={this.handleChange} />
+        <Overview isTime={this.state.isTime} value={this.state.value} handleChange={this.handleChange} handleDataChange={this.handleDataChange} />
         </div>
         <div className='chartContainer'>
           <VictoryChart width={800}>

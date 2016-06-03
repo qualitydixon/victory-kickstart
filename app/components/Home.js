@@ -55,14 +55,9 @@ export default class Home extends Component {
         <Overview isTime={this.state.isTime} data={this.state.overviewData} value={this.state.value} handleScaleChange={this.handleScaleChange} handleDataChange={this.handleDataChange} />
         </div>
         <div className='chartContainer'>
-          <VictoryChart width={800}>
-            <VictoryBar
-              style={{data: {fill: warriorBlue}}}
-              data={this.state.overviewData} />
-          </VictoryChart>
           <VictoryChart>
             <VictoryBar
-              style={{data: {fill: warriorYellow}}}
+              style={{data: {fill: warriorBlue, width: 4}}}
               data={getThrees()} />
           </VictoryChart>
           <VictoryChart>
@@ -74,7 +69,6 @@ export default class Home extends Component {
             style={{data: {width: 4}}}
             colorScale={"qualitative"}>
             <VictoryBar
-              style={{data: {width: 4}}}
               data={pointsAltScale}
             />
             <VictoryBar

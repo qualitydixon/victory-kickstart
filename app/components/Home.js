@@ -1,11 +1,13 @@
 import React, { Component } from 'react'
 import { VictoryLine, VictoryBar, VictoryScatter, VictoryAxis, VictoryChart, VictoryArea, VictoryStack } from 'victory'
-import { getPoints, getHeaders, getTotalThrees, getThrees, getAssists, getRebounds } from '../utils/helpers'
+import { getPoints, getPointsAltScale, getHeaders, getTotalThrees, getThrees, getAssists, getRebounds } from '../utils/helpers'
 import Header from './Header'
 import Overview from './Overview'
 
 
 const pointsData = getPoints()
+const pointsAltScale = getPointsAltScale()
+const assistData = getAssists()
 const reboundsData = getRebounds()
 
 const warriorBlue = '#1A64B7'
@@ -68,17 +70,20 @@ export default class Home extends Component {
             <VictoryLine
               data={getTotalThrees()} />
           </VictoryChart>
-          <VictoryStack height={500}>
-          <VictoryArea
-            data={getPoints()}
-          />
-          <VictoryArea
-            data={getAssists()}
-          />
-          <VictoryArea
-            data={getRebounds()}
-          />
-        </VictoryStack>
+          <VictoryStack
+            style={{data: {width: 4}}}
+            colorScale={"qualitative"}>
+            <VictoryBar
+              style={{data: {width: 4}}}
+              data={pointsAltScale}
+            />
+            <VictoryBar
+              data={assistData}
+            />
+            <VictoryBar
+              data={reboundsData}
+            />
+          </VictoryStack>
         </div>
       </div>
     )

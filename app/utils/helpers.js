@@ -8,6 +8,10 @@ export function getPoints () {
   return data.resultSets[0].rowSet.reverse().map((val, idx) => ({ x: new Date(val[3]), y: val[24] }))
 }
 
+export function getPointsAltScale () {
+  return data.resultSets[0].rowSet.reverse().map((val, idx) => ({ x: idx, y: val[24] }))
+}
+
 export function getPM () {
   return data.resultSets[0].rowSet.reverse().map((val, idx) => ({ x: idx, y: val[25] }))
 }

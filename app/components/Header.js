@@ -1,9 +1,9 @@
 import React, { PropTypes } from 'react'
+import header from 'file!../graphics/steph_header.jpg'
 
-const imgURL = '../graphics/steph_header.jpg'
 const style = {
   fontSize: '5vw',
-  backgroundImage: 'url(' + imgURL + ')',
+  backgroundImage: header,
 }
 
 const lastName = {

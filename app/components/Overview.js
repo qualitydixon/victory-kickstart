@@ -33,7 +33,7 @@ export default function Overview (props) {
             style={{grid: {stroke: '#424242', strokeWidth: 1}}}
             tickValues={[10, 30, 50]} />
           <VictoryBar
-            style={{data: {fill: warriorBlue}}}
+            style={{data: {fill: warriorBlue, width: 4}}}
             data={props.data} />
         </VictoryChart>
       </ChartFrame>

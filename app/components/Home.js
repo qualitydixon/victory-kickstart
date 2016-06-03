@@ -3,6 +3,7 @@ import { VictoryLine, VictoryBar, VictoryScatter, VictoryAxis, VictoryChart, Vic
 import { getPoints, getPointsAltScale, getHeaders, getTotalThrees, getThrees, getAssists, getRebounds } from '../utils/helpers'
 import Header from './Header'
 import Overview from './Overview'
+import ChartFrame from './ChartFrame'
 
 
 const pointsData = getPoints()
@@ -25,6 +26,12 @@ const containerStyle = {
 const overviewContainer = {
   display: 'flex',
   justifyContent: 'space-around',
+}
+
+const chartContainer = {
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center',
 }
 export default class Home extends Component {
   constructor (props) {
@@ -54,12 +61,21 @@ export default class Home extends Component {
         <div style={overviewContainer}>
         <Overview isTime={this.state.isTime} data={this.state.overviewData} value={this.state.value} handleScaleChange={this.handleScaleChange} handleDataChange={this.handleDataChange} />
         </div>
-        <div className='chartContainer'>
-          <VictoryChart>
-            <VictoryBar
-              style={{data: {fill: warriorBlue, width: 4}}}
-              data={getThrees()} />
-          </VictoryChart>
+        <div style={chartContainer}>
+          <ChartFrame>
+            <VictoryChart
+              width={800}
+              domainPadding={{x: 15, y: 0}}>
+              <VictoryBar
+                style={{data: {fill: warriorBlue, width: 4}}}
+                data={getThrees()} />
+              <VictoryAxis
+                style={{ axis: {stroke: 'transparent'}, tickLabels: {angle: 45}, data: {fontSize: 16} }} />
+              <VictoryAxis dependentAxis
+                style={{ axis: {stroke: 'transparent'}, ticks: {stroke: 'transparent'}, grid: {stroke: '#424242', strokeWidth: 1} }}
+                tickValues={[5, 10]} />
+            </VictoryChart>
+          </ChartFrame>
           <VictoryChart>
             <VictoryAxis />
             <VictoryLine

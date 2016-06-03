@@ -24,7 +24,7 @@ export default function Overview (props) {
           <MenuItem value={2} primaryText='rebounds' />
         </DropDownMenu>
         <VictoryChart width={800}
-          domainPadding={{x: 15, y: 5}}>
+          domainPadding={{x: 15, y: 0}}>
           <VictoryAxis
             scale={props.isTime ? 'time' : ''}
             style={{tickLabels: {angle: 45}, data: {fontSize: 16}}}

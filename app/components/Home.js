@@ -13,6 +13,7 @@ const points = stats.getPointsAltScale()
 const assists = stats.getAssists()
 const rebounds = stats.getRebounds()
 const reboundsTime = stats.getReboundsTime()
+const totalThrees = stats.getTotalThrees()
 
 const warriorBlue = '#1A64B7'
 const warriorYellow = '#FBBF16'
@@ -43,9 +44,14 @@ export default class Home extends Component {
       value: 1,
       overviewData: pointsTime,
       overviewLabels: [10, 30, 50],
+      y: [2, 3, 4, 5, 10, 20, 100],
     }
   }
-
+  componentDidMount () {
+  }
+  getYFunction () {
+    return true
+  }
   handleDataChange = (event, index, value) => this.setState({
     overviewData: value === 2 ? reboundsTime : pointsTime,
     overviewLabels: value === 2 ? [5, 10] : [10, 30, 50] })
@@ -81,12 +87,12 @@ export default class Home extends Component {
           <VictoryChart>
             <VictoryAxis />
             <VictoryLine
-              data={stats.getTotalThrees()} />
+              height={600}
+              data={this.state.y.map((val, idx) => Object.assign({y: val}, {x: idx}))}/>
           </VictoryChart>
           <VictoryStack
             style={{data: {width: 4}}}
-            colorScale={'qualitative'}
-            animate={{duration: 1000}}>
+            colorScale={'qualitative'}>
             <VictoryBar
               data={points}
             />

@@ -4,11 +4,13 @@ import injectTapEventPlugin from 'react-tap-event-plugin'
 require('../stylesheets/main.less')
 
 injectTapEventPlugin()
-
+const style = {
+  background: '#FBBF16',
+}
 export default class MainContainer extends Component {
   render () {
     return (
-      <div className='main'>
+      <div style={style}>
         <Home />
       </div>
     )

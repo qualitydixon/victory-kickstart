@@ -3,6 +3,7 @@ import { VictoryLine, VictoryBar, VictoryScatter, VictoryAxis, VictoryChart, Vic
 import * as stats from '../utils/helpers'
 import DropDownMenu from 'material-ui/DropDownMenu'
 import MenuItem from 'material-ui/MenuItem'
+import Paper from 'material-ui/Paper'
 import Header from './Header'
 import Overview from './Overview'
 import ChartFrame from './ChartFrame'
@@ -25,6 +26,12 @@ const containerStyle = {
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'center',
+}
+
+const paperStyle = {
+  width: '80vw',
+  margin: '10px',
+  textAlign: 'center',
 }
 
 const overviewContainer = {
@@ -65,12 +72,12 @@ export default class Home extends Component {
             <MenuItem value={1} primaryText='points' />
             <MenuItem value={2} primaryText='rebounds' />
           </DropDownMenu>
-        <ChartFrame>
+        <Paper style={paperStyle} zDepth={3}>
           <Overview isTime={this.state.isTime} data={this.state.overviewData} value={this.state.value} labels={this.state.overviewLabels} />
-        </ChartFrame>
+        </Paper>
         </div>
         <div style={chartContainer}>
-          <ChartFrame title='3PT FGM Per Game'>
+          <Paper style={paperStyle} zDepth={3}>
             <VictoryChart
               width={800}
               domainPadding={{x: 15, y: 0}}>
@@ -83,13 +90,15 @@ export default class Home extends Component {
                 style={{ axis: {stroke: 'transparent'}, ticks: {stroke: 'transparent'}, grid: {stroke: '#424242', strokeWidth: 1} }}
                 tickValues={[5, 10]} />
             </VictoryChart>
-          </ChartFrame>
-          <VictoryChart>
-            <VictoryAxis />
-            <VictoryLine
-              height={600}
-              data={this.state.y.map((val, idx) => Object.assign({y: val}, {x: idx}))}/>
-          </VictoryChart>
+          </Paper>
+          <Paper zDepth={3}>
+            <VictoryChart>
+              <VictoryAxis />
+              <VictoryLine
+                height={600}
+                data={this.state.y.map((val, idx) => Object.assign({y: val}, {x: idx}))}/>
+            </VictoryChart>
+          </Paper>
           <VictoryStack
             style={{data: {width: 4}}}
             colorScale={'qualitative'}>

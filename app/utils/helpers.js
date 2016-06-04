@@ -32,6 +32,10 @@ export function getRebounds () {
   return data.resultSets[0].rowSet.reverse().map((val, idx) => ({ x: idx, y: val[18] }))
 }
 
+export function getReboundsTime () {
+  return data.resultSets[0].rowSet.reverse().map((val, idx) => ({ x: new Date(val[3]), y: val[18] }))
+}
+
 export function getTotalThrees () {
   let total = 0
   return data.resultSets[0].rowSet.map((val, idx) => {

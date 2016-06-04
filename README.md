@@ -2,6 +2,12 @@
 
 My goal is to have this repo contain a bunch of different charts that I can refer back to.
 
+## TODO
+
+- Add tooltip to each bar on hover.
+- Add label to total threes chart.
+- Add legend to stack chart.
+
 
 ## Installation
 

@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { VictoryLine, VictoryBar, VictoryScatter, VictoryAxis, VictoryChart, VictoryArea, VictoryStack } from 'victory'
 import { getPoints, getPointsAltScale, getHeaders, getTotalThrees, getThrees, getAssists, getRebounds } from '../utils/helpers'
+import DropDownMenu from 'material-ui/DropDownMenu'
+import MenuItem from 'material-ui/MenuItem'
 import Header from './Header'
 import Overview from './Overview'
 import ChartFrame from './ChartFrame'
@@ -59,10 +61,20 @@ export default class Home extends Component {
       <div style={containerStyle}>
         <Header/>
         <div style={overviewContainer}>
-        <Overview isTime={this.state.isTime} data={this.state.overviewData} value={this.state.value} handleScaleChange={this.handleScaleChange} handleDataChange={this.handleDataChange} />
+          <DropDownMenu value={1} onChange={this.state.handleScaleChange}>
+            <MenuItem value={1} label='scale' primaryText='time' />
+            <MenuItem value={2} label='scale' primaryText='games' />
+          </DropDownMenu>
+          <DropDownMenu value={1} onChange={this.state.handleDataChange}>
+            <MenuItem value={1} primaryText='points' />
+            <MenuItem value={2} primaryText='rebounds' />
+          </DropDownMenu>
+        <ChartFrame>
+          <Overview isTime={this.state.isTime} data={this.state.overviewData} value={this.state.value} />
+        </ChartFrame>
         </div>
         <div style={chartContainer}>
-          <ChartFrame>
+          <ChartFrame title='3PT FGM Per Game'>
             <VictoryChart
               width={800}
               domainPadding={{x: 15, y: 0}}>

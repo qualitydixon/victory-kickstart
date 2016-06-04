@@ -8,9 +8,9 @@ import Overview from './Overview'
 import ChartFrame from './ChartFrame'
 
 
-const pointsData = stats.getPoints()
-const pointsAltScale = stats.getPointsAltScale()
-const assistData = stats.getAssists()
+const pointsTime = stats.getPoints()
+const points = stats.getPointsAltScale()
+const assists = stats.getAssists()
 const rebounds = stats.getRebounds()
 const reboundsTime = stats.getReboundsTime()
 
@@ -41,14 +41,13 @@ export default class Home extends Component {
     super(props)
     this.state = {
       value: 1,
-      overviewData: pointsData,
+      overviewData: pointsTime,
       overviewLabels: [10, 30, 50],
     }
   }
 
-  handleScaleChange = (event, index, value) => this.setState({ data: value === 2 ? pointsAltScale : pointsData })
   handleDataChange = (event, index, value) => this.setState({
-    overviewData: value === 2 ? reboundsTime : pointsData,
+    overviewData: value === 2 ? reboundsTime : pointsTime,
     overviewLabels: value === 2 ? [5, 10] : [10, 30, 50] })
 
   render () {
@@ -86,12 +85,13 @@ export default class Home extends Component {
           </VictoryChart>
           <VictoryStack
             style={{data: {width: 4}}}
-            colorScale={"qualitative"}>
+            colorScale={'qualitative'}
+            animate={{duration: 1000}}>
             <VictoryBar
-              data={pointsAltScale}
+              data={points}
             />
             <VictoryBar
-              data={assistData}
+              data={assists}
             />
             <VictoryBar
               data={rebounds}

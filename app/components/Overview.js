@@ -15,7 +15,7 @@ export default function Overview (props) {
         tickValues={props.labels} />
       <VictoryBar
         style={{data: {fill: warriorBlue, width: 4}}}
-        data={props.data} />
+        data={props.data}/>
     </VictoryChart>
   )
 }

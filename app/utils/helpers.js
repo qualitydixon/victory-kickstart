@@ -28,6 +28,10 @@ export function getAssists () {
   return data.resultSets[0].rowSet.map((val, idx) => ({ x: idx, y: val[19] }))
 }
 
+export function getAssistsTime () {
+  return data.resultSets[0].rowSet.map((val, idx) => ({ x: new Date(val[3]), y: val[19] }))
+}
+
 export function getRebounds () {
   return data.resultSets[0].rowSet.reverse().map((val, idx) => ({ x: idx, y: val[18] }))
 }

@@ -8,7 +8,7 @@ const style = {
 
 const lastName = {
   fontWeight: 'bold',
-  color: '#1E1E1E',
+  color: '#CFD8DC',
 }
 
 const firstName = {

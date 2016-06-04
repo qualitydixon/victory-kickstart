@@ -5,7 +5,7 @@ require('../stylesheets/main.less')
 
 injectTapEventPlugin()
 const style = {
-  background: '#FBBF16',
+  background: '#030A12',
 }
 export default class MainContainer extends Component {
   render () {

@@ -53,8 +53,6 @@ export default class Home extends Component {
       y: [2, 3, 4, 5, 10, 20, 100],
     }
   }
-  componentDidMount () {
-  }
   getYFunction () {
     return true
   }

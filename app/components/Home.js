@@ -59,6 +59,7 @@ export default class Home extends Component {
   handleDataChange = (event, index, value) => {
     this.setState({
       overviewData: dataSets[index],
+      value: value,
       overviewLabels: value === 1 ? [10, 30, 50] : [5, 10] })
   }
 
@@ -67,7 +68,7 @@ export default class Home extends Component {
       <div style={containerStyle}>
         <Header/>
         <div style={overviewContainer}>
-          <DropDownMenu value={1} onChange={this.handleDataChange}>
+          <DropDownMenu value={this.state.value} onChange={this.handleDataChange}>
             <MenuItem value={1} primaryText='points' />
             <MenuItem value={2} primaryText='rebounds' />
             <MenuItem value={3} primaryText='assists' />

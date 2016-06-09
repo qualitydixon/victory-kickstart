@@ -85,9 +85,6 @@ export default class Home extends Component {
               <VictoryBar
                 style={{data: {fill: warriorBlue, width: 4}}}
                 data={stats.getThrees()} />
-              <VictoryLine
-                height={600}
-                data={totalThrees}/>
               <VictoryAxis
                 style={{ axis: {stroke: 'transparent'}, tickLabels: {angle: 45}, data: {fontSize: 16} }} />
               <VictoryAxis dependentAxis
@@ -115,6 +112,66 @@ export default class Home extends Component {
               data={rebounds}
             />
           </VictoryStack>
+          <div style={{width: '100%'}}>
+            <Paper>
+              <svg viewBox='0 0 500 300'>
+                <VictoryAxis
+                  style={{
+                    data: {
+                      strokeWidth: 2,
+                    },
+                    labels: {
+                      fontSize: 16,
+                    },
+                  }}
+                  domain={[0, 80]}
+                  orientation='bottom'
+                  standalone={false}
+                />
+                <VictoryAxis dependent
+                  style={{
+                    axis: {stroke: warriorYellow, strokeWidth: 2},
+                    ticks: {stroke: warriorYellow},
+                    tickLabels: {fontSize: 12},
+                  }}
+                  domain={[0, 400]}
+                  offsetX={45}
+                  orientation='right'
+                  standalone={false}
+                />
+                <VictoryAxis dependent
+                  style={{
+                    axis: {stroke: warriorBlue, strokeWidth: 2},
+                    ticks: {stroke: warriorBlue},
+                    tickLabels: {fontSize: 12},
+                  }}
+                  offsetX={45}
+                  domain={[0, 12]}
+                  orientation='left'
+                  standalone={false}
+                />
+                <VictoryLine
+                  style={{
+                    data: {
+                      stroke: warriorYellow,
+                      strokeWidth: 2,
+                    },
+                  }}
+                  data={totalThrees}
+                  domain={{
+                    x: [0, 80],
+                    y: [0, 400],
+                  }}
+                  standalone={false}
+                />
+                <VictoryBar
+                  style={{data: {fill: warriorBlue, width: 4}}}
+                  data={stats.getThrees()}
+                  standalone={false}
+                />
+              </svg>
+            </Paper>
+          </div>
         </div>
       </div>
     )

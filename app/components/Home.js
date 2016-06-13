@@ -8,8 +8,8 @@ import Header from './Header'
 import Overview from './Overview'
 
 
-const pointsTime = stats.getPoints()
-const points = stats.getPointsAltScale()
+const pointsTime = stats.getPointsTime()
+const points = stats.getPoints()
 const assists = stats.getAssists()
 const assistsTime = stats.getAssistsTime()
 const rebounds = stats.getRebounds()

@@ -1,6 +1,5 @@
 import React, { PropTypes } from 'react'
 import { VictoryChart, VictoryBar, VictoryAxis } from 'victory'
-const warriorBlue = '#1A64B7'
 
 export default function Overview (props) {
   return (
@@ -14,7 +13,7 @@ export default function Overview (props) {
       <VictoryAxis dependentAxis
         style={{grid: {stroke: '#424242', strokeWidth: 1}}} />
       <VictoryBar
-        animate={{duration: 500}}
+        animate={{duration: 2000}}
         style={{data: {fill: '#1A64B7', width: 4}}}
         data={props.data}/>
     </VictoryChart>

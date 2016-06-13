@@ -4,11 +4,11 @@ export function getHeaders () {
   return data.resultSets[0].headers[24]
 }
 
-export function getPoints () {
+export function getPointsTime () {
   return data.resultSets[0].rowSet.reverse().map((val, idx) => ({ x: new Date(val[3]), y: val[24] }))
 }
 
-export function getPointsAltScale () {
+export function getPoints () {
   return data.resultSets[0].rowSet.reverse().map((val, idx) => ({ x: idx, y: val[24] }))
 }
 
@@ -29,7 +29,7 @@ export function getAssists () {
 }
 
 export function getAssistsTime () {
-  return data.resultSets[0].rowSet.map((val, idx) => ({ x: new Date(val[3]), y: val[19] }))
+  return data.resultSets[0].rowSet.reverse().map((val, idx) => ({ x: new Date(val[3]), y: val[19] }))
 }
 
 export function getRebounds () {

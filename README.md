@@ -9,6 +9,7 @@ My goal is to have this repo contain a bunch of different charts that I can refe
 - Add legend to stack chart.
 - Animate data changes.
 - Pull all style objects into a separate styles file.
+- Add conditional formatting for a max/min bar values.
 
 
 ## Installation

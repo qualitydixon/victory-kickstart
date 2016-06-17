@@ -26,7 +26,7 @@ const containerStyle = {
 }
 
 const paperStyle = {
-  width: '80vw',
+  width: '50vw',
   margin: '10px',
   textAlign: 'center',
 }
@@ -62,7 +62,6 @@ export default class Home extends Component {
       value: value,
       overviewLabels: value === 1 ? [10, 30, 50] : [5, 10] })
   }
-
   render () {
     return (
       <div style={containerStyle}>
@@ -80,7 +79,6 @@ export default class Home extends Component {
         <div style={chartContainer}>
           <Paper style={paperStyle} zDepth={3}>
             <VictoryChart
-              width={800}
               domainPadding={{x: 15, y: 0}}>
               <VictoryBar
                 style={{data: {fill: warriorBlue, width: 4}}}

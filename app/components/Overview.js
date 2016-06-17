@@ -4,7 +4,6 @@ import { VictoryChart, VictoryBar, VictoryAxis } from 'victory'
 export default function Overview (props) {
   return (
     <VictoryChart
-      width={800}
       domainPadding={{x: 15, y: 0}} >
       <VictoryAxis
         scale={'time'}
@@ -14,7 +13,7 @@ export default function Overview (props) {
         style={{grid: {stroke: '#424242', strokeWidth: 1}}} />
       <VictoryBar
         animate={{duration: 2000}}
-        style={{data: {fill: '#1A64B7', width: 4}}}
+        style={{data: {fill: '#1A64B7', width: 2}}}
         data={props.data}/>
     </VictoryChart>
   )

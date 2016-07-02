@@ -89,11 +89,10 @@ export default class Home extends Component {
                 style={{ axis: {stroke: 'transparent'}, ticks: {stroke: 'transparent'}, grid: {stroke: '#424242', strokeWidth: 1} }} />
             </VictoryChart>
           </Paper>
-          <Paper zDepth={3}>
+          <Paper style={paperStyle} zDepth={3}>
             <VictoryChart>
               <VictoryAxis />
               <VictoryLine
-                height={600}
                 data={this.state.y.map((val, idx) => Object.assign({y: val}, {x: idx}))}/>
             </VictoryChart>
           </Paper>

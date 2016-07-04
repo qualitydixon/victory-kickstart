@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { VictoryLine, VictoryBar, VictoryScatter, VictoryAxis, VictoryChart, VictoryArea, VictoryStack } from 'victory'
+import { VictoryLine, VictoryLabel, VictoryBar, VictoryScatter, VictoryAxis, VictoryChart, VictoryArea, VictoryStack } from 'victory'
 import * as stats from '../utils/helpers'
 import DropDownMenu from 'material-ui/DropDownMenu'
 import MenuItem from 'material-ui/MenuItem'
@@ -112,6 +112,11 @@ export default class Home extends Component {
           <div style={{width: '100%'}}>
             <Paper>
               <svg viewBox='0 0 500 300'>
+                <VictoryLabel x={10} y={10}
+                    textAnchor="start"
+                    verticalAnchor="start">
+                    {'3pt fgm per game'}
+                </VictoryLabel>
                 <VictoryAxis
                   style={{
                     data: {
